@@ -8,10 +8,10 @@ export default function Dashboard({ children }: any) {
 
 
 
-            <div
+            {/* <div
                 className="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
                 style={{ backdropFilter: 'blur(14px)' }}
-            ></div>
+            ></div> */}
 
             {/* <!-- Sidebar --> */}
             <aside
@@ -24,7 +24,7 @@ export default function Dashboard({ children }: any) {
                     <span className="p-2 text-xl font-semibold leading-8 tracking-wider uppercase whitespace-nowrap text-center">
                         K<span className={`${!isSidebarOpen && 'lg:hidden'}`}>-WD</span>
                     </span>
-                    <button className="p-2 rounded-md lg:hidden">
+                    <button className="p-2 rounded-md lg:hidden" onClick={() => setIsSidebarOpen(prev => !prev)}>
                         <svg
                             className="w-6 h-6 text-gray-600"
                             xmlns="http://www.w3.org/2000/svg"
@@ -116,17 +116,16 @@ export default function Dashboard({ children }: any) {
                         </div>
 
                         {/* <!-- Mobile search box --> */}
-                        <div
+                        {/* <div
 
                             className="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
-                        //   style="backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)"
                         >
                             <div
 
                                 className="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
                             >
                                 <div className="flex items-center flex-1 px-2 space-x-2">
-                                    {/* <!-- search icon --> */}
+
                                     <span>
                                         <svg
                                             className="w-6 h-6 text-gray-500"
@@ -149,7 +148,7 @@ export default function Dashboard({ children }: any) {
                                         className="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
                                     />
                                 </div>
-                                {/* <!-- close button --> */}
+
                                 <button className="flex-shrink-0 p-4 rounded-md">
                                     <svg
                                         className="w-4 h-4 text-gray-500"
@@ -162,7 +161,7 @@ export default function Dashboard({ children }: any) {
                                     </svg>
                                 </button>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* <!-- Desktop search box --> */}
                         <div className="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
@@ -239,7 +238,7 @@ export default function Dashboard({ children }: any) {
                     {children}
                 </main >
                 {/* <!-- Main footer --> */}
-                < footer className="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14" >
+                <footer className="flex items-center justify-between flex-shrink-0 p-4 border-t max-h-14" >
                     <div>K-WD &copy; 2020</div>
                     <div className="text-sm">
                         Made by
