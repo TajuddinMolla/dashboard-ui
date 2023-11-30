@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 export default function Dashboard({ children }: any) {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true)
+    const [isMobileSearchOpen, setIsMobileSearchOpen] = useState<boolean>(true)
     return (
         <div className="flex h-screen overflow-y-hidden bg-white">
 
@@ -116,52 +117,57 @@ export default function Dashboard({ children }: any) {
                         </div>
 
                         {/* <!-- Mobile search box --> */}
-                        {/* <div
+                        {
+                            isMobileSearchOpen && (
+                                <div
 
-                            className="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
-                        >
-                            <div
+                                    className="fixed inset-0 z-10 bg-black bg-opacity-20 lg:hidden"
+                                >
+                                    <div
 
-                                className="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
-                            >
-                                <div className="flex items-center flex-1 px-2 space-x-2">
-
-                                    <span>
-                                        <svg
-                                            className="w-6 h-6 text-gray-500"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                            />
-                                        </svg>
-                                    </span>
-                                    <input
-                                        type="text"
-                                        placeholder="Search"
-                                        className="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
-                                    />
-                                </div>
-
-                                <button className="flex-shrink-0 p-4 rounded-md">
-                                    <svg
-                                        className="w-4 h-4 text-gray-500"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
+                                        className="absolute inset-x-0 flex items-center justify-between p-2 bg-white shadow-md"
                                     >
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div> */}
+                                        <div className="flex items-center flex-1 px-2 space-x-2">
+
+                                            <span>
+                                                <svg
+                                                    className="w-6 h-6 text-gray-500"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                                    />
+                                                </svg>
+                                            </span>
+                                            <input
+                                                type="text"
+                                                placeholder="Search"
+                                                className="w-full px-4 py-3 text-gray-600 rounded-md focus:bg-gray-100 focus:outline-none"
+                                            />
+                                        </div>
+
+                                        <button className="flex-shrink-0 p-4 rounded-md" onClick={() => setIsMobileSearchOpen(false)}>
+                                            <svg
+                                                className="w-4 h-4 text-gray-500"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            )
+                        }
+
 
                         {/* <!-- Desktop search box --> */}
                         <div className="items-center hidden px-2 space-x-2 md:flex-1 md:flex md:mr-auto md:ml-5">
@@ -192,7 +198,25 @@ export default function Dashboard({ children }: any) {
                         {/* <!-- Navbar right --> */}
                         <div className="relative flex items-center space-x-3">
 
-
+                            <button
+                                onClick={() => setIsMobileSearchOpen(true)}
+                                className="p-2 bg-gray-100 rounded-full md:hidden focus:outline-none focus:ring hover:bg-gray-200"
+                            >
+                                <svg
+                                    className="w-6 h-6 text-gray-500"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </button>
 
 
                             {/* <!-- avatar button --> */}
