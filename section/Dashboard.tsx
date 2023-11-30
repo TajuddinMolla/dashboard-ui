@@ -88,7 +88,7 @@ export default function Dashboard({ children }: any) {
                                 />
                             </svg>
                         </span>
-                        <span className="text-sm {'lg:hidden': !isSidebarOpen}"> Logout </span>
+                        <span className={`text-sm ${!isSidebarOpen && 'lg:hidden'}`}> Logout </span>
                     </button>
                 </div>
             </aside>
